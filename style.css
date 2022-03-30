@@ -3,7 +3,7 @@
 }
 
 body {
-  background: url(../images/imageedit_2_7534988625.png) 100% 100%;
+  background: url("./images/imageedit_2_7534988625.png") 100% 100%;
   background-size: cover;
   margin-bottom: 30px;
 }
