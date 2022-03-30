@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Morse-English Translator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>MORSE CODE TRANSLATOR</h1>
+        <p>
+            Morse code is named after Samuel Morse, one of the inventors of the
+            telegraph. Morse code can be transmitted used sounds or light,
+            making it useful at sea. It is a highly reliable communications
+            method, even during difficult and noisy environments. The Morse
+            alphabet became a worldwide standard in 1865.
+        </p>
+        <div class="translator">
+            <h3>Translate a Message:</h3>
+            <form id="form">
+                <textarea
+                    type="text"
+                    id="textarea"
+                    cols="50"
+                    rows="6"
+                    placeholder="Type in English or Morse ..."
+                ></textarea>
+                <input
+                    class="button"
+                    id="submit"
+                    type="submit"
+                    value="Translate"
+                />
+                <input class="button" type="reset" />
+            </form>
+            <p class="output">Output:</p>
+            <div id="result"></div>
+            <button class="button" id="clearResult">Clear translation</button>
+        </div>
+        <div id="output2"></div>
+        <script type="module" src="script.js"></script>
+        <script type="module" src="morse-code.js"></script>
+        <script type="module" src="dom-utensils.js"></script>
+    </body>
+</html>

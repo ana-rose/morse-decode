@@ -1,0 +1,51 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: url(../images/imageedit_2_7534988625.png) 100% 100%;
+  background-size: cover;
+  margin-bottom: 30px;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px 30px 0 30px;
+  color: #5e1d30;
+}
+
+h1 + p {
+  text-align: center;
+  margin: 40px 30px 0 30px;
+}
+
+.translator {
+  margin: 60px 30px 30px 30px;
+  background-color: white;
+  padding: 30px;
+}
+
+textarea {
+  margin-top: 20px;
+  width: 100%;
+  border: 1px solid #dbd6d6;
+}
+
+.output {
+  font-weight: bold;
+  margin: 30px 0 30px 0;
+}
+
+#result {
+  height: 80px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border: 1px solid #dbd6d6;
+}
+
+.button {
+  padding: 10px 20px;
+  margin: 10px 0px 0px 0px;
+  background-color: #f3f3c8;
+  border-radius: 5px;
+}
