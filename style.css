@@ -48,4 +48,8 @@ textarea {
   margin: 10px 0px 0px 0px;
   background-color: #f3f3c8;
   border-radius: 5px;
+  color: black;
+}
+.button:active {
+  color: black;
 }
