@@ -2,6 +2,7 @@ import { morseCode } from "./morse-code.js";
 import { createElementWithText } from "./dom-utensils.js";
 
 const submitEnglish = document.getElementById("submitEnglish");
+const submitMorse = document.getElementById("submitMorse");
 const clearResult = document.getElementById("clearResult");
 
 submitEnglish.addEventListener("click", (event) => {
@@ -15,6 +16,32 @@ submitEnglish.addEventListener("click", (event) => {
     }
     result.removeChild(result.childNodes[1]);
 });
+
+const morseReversed = Object.entries(morseCode).reduce((acc, entry) => {
+    acc[entry[1]] = entry[0];
+    return acc;
+}, {});
+
+submitMorse.addEventListener("click", (event) => {
+    event.preventDefault();
+    const input = document.getElementById("textarea").value;
+    const result = document.getElementById("result");
+    const letters = /^[a-zA-Z\s]*$/;
+    if (input.match(letters)) {
+        alert("Wrong button!");
+    } else {
+        morseToEnglish(input);
+        createElementWithText("p", morseToEnglish(input), result);
+        if (input === "") {
+            return alert("Nothing to translate!");
+        }
+    }
+    if (input === "") {
+        return alert("Nothing to translate!");
+    }
+    result.removeChild(result.childNodes[1]);
+});
+
 clearResult.addEventListener("click", () => {
     result.innerHTML = "";
 });
@@ -25,4 +52,9 @@ const englishToMorse = (input) => {
         .map((char) => morseCode[char]);
     const myMorse = morseArray.join("  ");
     return myMorse;
+};
+const morseToEnglish = (input) => {
+    const englishArray = input.split(" ").map((char) => morseReversed[char]);
+    const myEnglish = englishArray.join("");
+    return myEnglish;
 };
