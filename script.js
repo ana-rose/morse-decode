@@ -1,10 +1,10 @@
 import { morseCode } from "./morse-code.js";
 import { createElementWithText } from "./dom-utensils.js";
 
-const submit = document.getElementById("submit");
+const submitEnglish = document.getElementById("submitEnglish");
 const clearResult = document.getElementById("clearResult");
 
-submit.addEventListener("click", (event) => {
+submitEnglish.addEventListener("click", (event) => {
     event.preventDefault();
     const input = document.getElementById("textarea").value;
     englishToMorse(input);

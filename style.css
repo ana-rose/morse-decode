@@ -47,25 +47,38 @@ textarea {
   text-align: center;
   cursor: pointer;
   font-size: 14px;
-  margin: 10px;
+  margin: 5px;
   -moz-appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background-color: #16a085;
   border: none;
   color: #fff;
-  padding: 10px;
+  padding: 8px;
   width: 150px;
   text-align: center;
-  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
   overflow: hidden;
-  box-shadow: 0 4px 8px #193047;
+  -webkit-box-shadow: 0 2px 4px #193047;
+          box-shadow: 0 2px 4px #193047;
   border-radius: 4px;
+}
+
+.button__green {
+  background-color: #16a085;
+  color: #fff;
+}
+
+.button__white {
+  color: #16a085;
+  background-color: white;
 }
 
 .button:hover {
   background: #fff;
-  box-shadow: 0px 2px 10px 5px #1abc9c;
+  -webkit-box-shadow: 0px 2px 4px 2px #1abc9c;
+          box-shadow: 0px 2px 4px 2px #1abc9c;
   color: #000;
 }
+/*# sourceMappingURL=style.css.map */

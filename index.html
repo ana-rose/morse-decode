@@ -33,16 +33,24 @@
                     placeholder="Type in English or Morse ..."
                 ></textarea>
                 <input
-                    class="ripple button"
-                    id="submit"
+                    class="button button__green"
+                    id="submitEnglish"
                     type="submit"
-                    value="Translate"
+                    value="To Morse"
                 />
-                <input class="button" type="reset" />
+                <input
+                    class="button button__green"
+                    id="submitMorse"
+                    type="submit"
+                    value="To English"
+                />
+                <input class="button button__white" type="reset" />
             </form>
             <p class="output">Output:</p>
             <div id="result"></div>
-            <button class="button" id="clearResult">Clear translation</button>
+            <button class="button button__white" id="clearResult">
+                Clear translation
+            </button>
         </div>
         <div id="output2"></div>
         <script type="module" src="script.js"></script>
