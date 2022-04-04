@@ -26,9 +26,10 @@ submitMorse.addEventListener("click", (event) => {
     event.preventDefault();
     const input = document.getElementById("textarea").value;
     const result = document.getElementById("result");
-    const letters = /^[a-zA-Z\s]*$/;
-    if (input.match(letters)) {
-        alert("Wrong button!");
+    // const letters = /^[0-9A-Za-z\s/!,?'()"&:;=+@]+$/;
+    const letters = /^[\s/./-]+$/;
+    if (!input.match(letters)) {
+        alert("Wrong button! Morse characters can only contain - . and /");
     } else {
         morseToEnglish(input);
         createElementWithText("p", morseToEnglish(input), result);
@@ -55,6 +56,7 @@ const englishToMorse = (input) => {
 };
 const morseToEnglish = (input) => {
     const englishArray = input.split(" ").map((char) => morseReversed[char]);
+
     const myEnglish = englishArray.join("");
     return myEnglish;
 };
