@@ -5,6 +5,7 @@ const submitEnglish = document.getElementById("submitEnglish");
 const submitMorse = document.getElementById("submitMorse");
 const clearResult = document.getElementById("clearResult");
 
+// Event listener (click) for "To Morse" button
 submitEnglish.addEventListener("click", (event) => {
     event.preventDefault();
     const input = document.getElementById("textarea").value;
@@ -17,16 +18,17 @@ submitEnglish.addEventListener("click", (event) => {
     result.removeChild(result.childNodes[1]);
 });
 
+// Reversing the Morse object key value pairs
 const morseReversed = Object.entries(morseCode).reduce((acc, entry) => {
     acc[entry[1]] = entry[0];
     return acc;
 }, {});
 
+// Event listener (click) for "To English" button
 submitMorse.addEventListener("click", (event) => {
     event.preventDefault();
     const input = document.getElementById("textarea").value;
     const result = document.getElementById("result");
-    // const letters = /^[0-9A-Za-z\s/!,?'()"&:;=+@]+$/;
     const letters = /^[\s/./-]+$/;
     if (!input.match(letters)) {
         alert("Wrong button! Morse characters can only contain - . and /");
@@ -43,9 +45,13 @@ submitMorse.addEventListener("click", (event) => {
     result.removeChild(result.childNodes[1]);
 });
 
+// Event listener (click) for "Clear Translation" button
 clearResult.addEventListener("click", () => {
     result.innerHTML = "";
 });
+
+// Translation functions :
+
 const englishToMorse = (input) => {
     const morseArray = input
         .toLowerCase()
