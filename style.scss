@@ -1,8 +1,10 @@
+$tablet: 920px;
+
 * {
     font-family: "Roboto", sans-serif;
 }
 body {
-    background: url("./images/imageedit_2_7534988625.png") 100% 100%;
+    background-color: #fcf5f8;
     background-size: cover;
     margin-bottom: 30px;
 }
@@ -55,17 +57,32 @@ textarea {
     border-radius: 4px;
 
     &__green {
-        background-color: #16a085;
+        background-color: #1bc9f5;
         color: #fff;
     }
     &__white {
-        color: #16a085;
+        color: black;
         background-color: white;
     }
 }
 
 .button:hover {
     background: #fff;
-    box-shadow: 0px 2px 4px 2px #1abc9c;
+    box-shadow: 0px 2px 4px 2px #1bc9f5;
     color: #000;
+}
+
+@mixin tablet {
+    @media only screen and (max-width: $tablet) {
+        @content;
+    }
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    @include tablet {
+        width: 90%;
+    }
 }
