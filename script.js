@@ -1,5 +1,6 @@
-import { morseCode } from "./morse-code.js";
-import { createElementWithText } from "./dom-utensils.js";
+import { createElementWithText } from "./js modules/dom-utensils.js";
+import { morseToEnglish } from "./js modules/morseToEnglish.js";
+import { englishToMorse } from "./js modules/englishToMorse.js";
 
 const submitEnglish = document.getElementById("submitEnglish");
 const submitMorse = document.getElementById("submitMorse");
@@ -9,20 +10,19 @@ const clearResult = document.getElementById("clearResult");
 submitEnglish.addEventListener("click", (event) => {
     event.preventDefault();
     const input = document.getElementById("textarea").value;
-    englishToMorse(input);
+    // englishToMorse(input);
     const result = document.getElementById("result");
-    createElementWithText("p", englishToMorse(input), result);
-    if (input === "") {
+    const myInput = /^[\s\w.,!?'/&:;=+"@_$()]+$/;
+    if (input !== "" && !input.match(myInput)) {
+        return alert("Invalid characters");
+    } else if (input === "") {
         return alert("Nothing to translate!");
+    } else {
+        englishToMorse(input);
+        createElementWithText("p", englishToMorse(input), result);
     }
     result.removeChild(result.childNodes[1]);
 });
-
-// Reversing the Morse object key value pairs
-const morseReversed = Object.entries(morseCode).reduce((acc, entry) => {
-    acc[entry[1]] = entry[0];
-    return acc;
-}, {});
 
 // Event listener (click) for "To English" button
 submitMorse.addEventListener("click", (event) => {
@@ -30,17 +30,13 @@ submitMorse.addEventListener("click", (event) => {
     const input = document.getElementById("textarea").value;
     const result = document.getElementById("result");
     const letters = /^[\s/./-]+$/;
-    if (!input.match(letters)) {
-        alert("Wrong button! Morse characters can only contain - . and /");
+    if (input !== "" && !input.match(letters)) {
+        alert("Wrong button! This is not Morse code.");
+    } else if (input === "") {
+        return alert("Nothing to translate!");
     } else {
         morseToEnglish(input);
         createElementWithText("p", morseToEnglish(input), result);
-        if (input === "") {
-            return alert("Nothing to translate!");
-        }
-    }
-    if (input === "") {
-        return alert("Nothing to translate!");
     }
     result.removeChild(result.childNodes[1]);
 });
@@ -49,20 +45,3 @@ submitMorse.addEventListener("click", (event) => {
 clearResult.addEventListener("click", () => {
     result.innerHTML = "";
 });
-
-// Translation functions :
-
-const englishToMorse = (input) => {
-    const morseArray = input
-        .toLowerCase()
-        .split("")
-        .map((char) => morseCode[char]);
-    const myMorse = morseArray.join("  ");
-    return myMorse;
-};
-const morseToEnglish = (input) => {
-    const englishArray = input.split(" ").map((char) => morseReversed[char]);
-
-    const myEnglish = englishArray.join("");
-    return myEnglish;
-};
